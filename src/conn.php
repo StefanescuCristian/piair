@@ -6,7 +6,7 @@ define('DB_HOST',getenv('MYSQL_HOST'));
 define('DB_PORT',getenv('MYSQL_PORT'));
 define('DB_DATABASE',getenv('MYSQL_DATABASE'));
 
-$con = mysqli_connect(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+$conn = mysqli_connect(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 if (mysqli_connect_errno())
   {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
