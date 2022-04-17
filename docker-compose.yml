@@ -17,6 +17,8 @@ php:
     - mysql
 mysql:
   image: mysql:latest
+  ports:
+    - "3306:3306/tcp"
   env_file:
     - ./.env
   volumes:
