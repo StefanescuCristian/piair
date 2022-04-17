@@ -11,3 +11,9 @@ php:
     - ./src:/code
   env_file:
     - ./.env
+mysql:
+  image: mysql:latest
+  env_file:
+    - ./.env
+  volumes:
+    - /var/lib/docker/ext-volumes/mysql:/var/lib/mysql
