@@ -5,7 +5,7 @@ if ($conn->connect_error) {
 }
 
 // selecteaza o valoare per minut, tine istoric o ~saptamna
-$query_history = "SELECT * FROM (SELECT data,temperature,pressure,humidity,airq FROM sensor WHERE id MOD 60 = 0 ORDER BY id DESC LIMIT 10080) subtable ORDER BY data ASC;";
+$query_history = "SELECT * FROM (SELECT data,temperature,pressure,humidity,airq FROM sensor ORDER BY id DESC LIMIT 10080) subtable ORDER BY data ASC;";
 
 $his_result = $conn->query($query_history);
 
