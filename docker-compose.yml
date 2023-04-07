@@ -1,25 +1,27 @@
-web:
-  image: nginx:alpine
-  volumes:
-    - ./src:/code
-    - ./site.conf:/etc/nginx/conf.d/default.conf
-  env_file:
-    - ./.env_web
-  links:
-    - php
-php:
-  build: .
-  volumes:
-    - ./src:/code
-  env_file:
-    - ./.env
-  links:
-    - mysql
-mysql:
-  image: mysql:latest
-  ports:
-    - "3306:3306/tcp"
-  env_file:
-    - ./.env
-  volumes:
-    - /var/lib/docker/ext-volumes/mysql:/var/lib/mysql
+version: '2'
+services:
+  web:
+    image: nginx:alpine
+    volumes:
+      - ./src:/code
+      - ./site.conf:/etc/nginx/conf.d/default.conf
+    env_file:
+      - ./.env_web
+    links:
+      - php
+  php:
+    build: .
+    volumes:
+      - ./src:/code
+    env_file:
+      - ./.env
+    links:
+      - mysql
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306/tcp"
+    env_file:
+      - ./.env
+    volumes:
+      - /var/lib/docker/ext-volumes/mysql:/var/lib/mysql
