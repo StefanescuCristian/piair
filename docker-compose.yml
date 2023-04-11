@@ -17,6 +17,8 @@ services:
       - ./.env
     links:
       - mysql
+    labels:
+      - com.centurylinklabs.watchtower.enable=false
   mysql:
     image: mysql:latest
     ports:
